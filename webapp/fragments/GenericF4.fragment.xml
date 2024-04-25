@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog   contentHeight="350px" confirm="onCofirmF4"  liveChange="onLiveChange">
+		<!--<StandardListItem  id="f4list"></StandardListItem>-->
+	</SelectDialog>
+</core:FragmentDefinition>

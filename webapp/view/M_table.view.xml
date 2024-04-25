@@ -1,0 +1,62 @@
+<mvc:View controllerName="mtable.mtable.controller.M_table"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+   xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <App>
+		<pages>
+			<Page title="{i18n>title}" class="sapUiSizeCompact">
+				<content>
+					<Table noDataText="No Products Found" id="ProductsTable" mode="MultiSelect" selectionChange="onSelectionChange" updateFinished="onTableUpdate"  >
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Products" id="tableTitle"></Title>
+							<ToolbarSpacer/>
+							<SearchField width="30%" liveChange="onSearchTable"></SearchField>
+						</OverflowToolbar>
+					</headerToolbar>
+				<columns>
+					<Column demandPopin="true" >
+						<Label text="ProductID" design="Bold"></Label>
+					</Column>
+					<Column demandPopin="true">
+						<Label text="ProductName" design="Bold"></Label>
+					</Column>
+					<Column demandPopin="true"   minScreenWidth="Tablet">
+						<Label text="SupplierID" design="Bold"></Label>
+					</Column>
+					<Column demandPopin="true" minScreenWidth="Desktop">
+						<Label text="CategoryID" design="Bold"></Label>
+					</Column>
+						<Column demandPopin="true" minScreenWidth="Desktop">
+						<Label text="QuantityPerUnit" design="Bold"></Label>
+					</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+						<Label text="UnitPrice" design="Bold"></Label>
+					</Column>
+						<Column demandPopin="true" minScreenWidth="Desktop">
+						<Label text="UnitsInStock" design="Bold"></Label>
+					</Column>
+						<Column demandPopin="true" minScreenWidth="Desktop">
+						<Label text="UnitsOnOrder" design="Bold" ></Label>
+					</Column>
+				</columns>
+				<ColumnListItem id="tabcol">
+					<cells>
+						<Text text="{ProductID}"></Text>
+						<Text text="{ProductName}"></Text>
+						<Text text="{SupplierID}"></Text>
+						<Text text="{CategoryID}"></Text>
+						<Text text="{QuantityPerUnit}"></Text>
+						<Text text="{UnitPrice}"></Text>
+						<!--<Text text="{UnitsInStock}"></Text>-->
+						<ObjectNumber number="{UnitsInStock}" state="{parts:[{path:'UnitsInStock'},{path:'UnitsOnOrder'}],formatter:'.FormatStock'}"></ObjectNumber>
+						<!--<Text text="{UnitsOnOrder}"></Text>-->
+						<Input value="{UnitsOnOrder}" editable="false" liveChange="onCangeOrder"></Input>
+					</cells>
+				</ColumnListItem>
+				</Table>
+				</content>
+				
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
